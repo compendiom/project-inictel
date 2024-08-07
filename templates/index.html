@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="copyright" content="Inictel-UNI">
+        <meta name="author" content="Alvaro Julca Gallardo, ajulca@inictel-uni.edu.pe">
+        <title>Validaci&oacute;n de Certificados</title>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                background: linear-gradient(to bottom, #9fcdff, #519ef0f8);
+                color: #000; /* Texto oscuro */
+
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                flex-direction: column;
+            }
+            .container {
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)); /* Degradado suave */
+                border: 1px, solid, #ccc;
+                border-radius: 5px;
+                padding: 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+            }
+            .pageContainer {
+                flex-grow: 1; /* Este elemento crecerá para ocupar todo el espacio disponible */
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 70%;
+                min-height: 40%;
+            }
+            h1 {
+                margin: 0 0 20px; 
+            }
+            .fields {
+                text-align: left;
+                margin-left: 20px;
+                margin-right: 40px; 
+            }
+            label {
+                display: block;
+                margin: 10px 0;
+                font-weight: bold;
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin-right: 0px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            .institution-logo {
+                display: block;
+                max-width: 200px;
+                height: auto; /* Altura automática para mantener las dimensiones originales */
+                margin: 0 auto;
+                margin-top: -20px;
+                text-align: center;
+            }
+            .captcha-container {
+                text-align: center;
+            }
+            .g-recaptcha {
+                display: inline-block;
+            }
+            input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            input[type="submit"]:hover{
+                background-color: #0056b3;
+            }
+
+            /* Estilos para los radio buttoms */
+
+            .radio-label {
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 15px;
+                cursor: pointer;
+                display: inline-block;
+            }
+
+            .radio-label input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 20px;
+                width: 20px;
+                background-color: #eee;
+                border-radius: 50%;
+            }
+
+            .codigoVal button {
+                float: right;
+                border-radius: 100%;
+                box-shadow: none;
+                border-color: #000;
+            }
+
+            .radio-label:hover input ~ .checkmark {
+                background-color: #ccc;
+            }
+
+            .radio-label input:checked ~ .checkmark {
+                background-color: #1e3a8a; /* Cambia este color según tu esquema de colores */
+            }
+
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            .radio-label input:checked ~ .checkmark:after {
+                display: block;
+                display: inline-block;
+            }
+
+            .radio-label .checkmark:after {
+                top: 5px;
+                left: 5px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: white;
+            }
+        </style>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </head>
+    <header>
+        <style>
+            header {
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                top: 0;
+            }
+    
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+    
+            .logo img {
+                max-width: 100%;
+                height: 60px;
+            }
+    
+            .menu {
+                list-style: none;
+                display: flex;
+            }
+    
+            .menu li {
+                margin-right: 20px;
+            }
+    
+            .menu li a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+    
+            .menu li a:hover {
+                color: #007bff; /* Color del texto al pasar el ratón */
+            }
+        </style>
+    
+        <div class="header-container">
+            <div class="logo">
+                <img src="/resources/logo_inictel.png" alt="Logo Inictel" width="150">
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <body>
+        <div class="pageContainer">
+            <div class="container">
+                <!-- Agrega la imagen de la institución -->
+                <!-- img src="logoInictel.png" alt="Logo de la Institución" class="institution.logo" -->
+                <h1>Validaci&oacute;n de Certificados</h1>
+                <form action="/resultado" method="post">
+                    <div class="fields">
+                        <label for="dni">N&uacute;mero de DNI:</label>
+                        <input type="text" id="dni" name="dni" pattern="^[0-9]{8}$" title="El DNI debe tener exactamente 9 dígitos numéricos." required>
+
+                        <label for="apellido">Primer Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" pattern="^[A-ZÑ\s]+" title="El apellido debe contener solo letras mayúsculas y espacios." required>
+
+                        <label class="codigoVal" for="codigo">C&oacute;digo de Validaci&oacute;n: <button>&quest;</button></label>
+                        <input type="text" id="codigo" name="codigo" pattern="^[0-9]+$" title="El codigo debe tener exactamente 9 dígitos numéricos." required>
+                        
+                        
+
+
+                        <p style="font-weight: bold;">Tipo de documento: <br>
+                            <label class="radio-label" style="padding-right: 20%; font-weight: normal;">
+                                <input type="radio" name="tipo" value="CERTIFICADO" checked>
+                                <span class="checkmark"></span> Certificado
+                            </label>
+                            <label class="radio-label" style="font-weight:normal;">
+                                <input type="radio" name="tipo" value="CONSTANCIA">
+                                <span class="checkmark"></span> Constancia
+                            </label>
+                        </p>   
+                    </div>
+                    <!-- Agrega el widget de reCAPTCHA en su propio contenedor -->
+                    <div class="captcha-container">
+                        <div class="g-recaptcha" data-sitekey="6Lcjxg4qAAAAAM2PCbF_cI6LElkbajJjozp3pdaM" required></div>
+                    </div>
+
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </body>
+    <footer class="footer">
+        <style>
+            .footer {
+                background-color: #1e3a8a;
+                color: #fff;
+                text-align: center;
+                padding: 13px 0;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+    
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+    
+            .footer-links {
+                margin-bottom: 20px;
+            }
+    
+            .footer-link {
+                color: #fff;
+                text-decoration: none;
+                margin: 0 15px;
+                font-size: 14px;
+                transition: color 0.3s ease-in-out;
+            }
+    
+            .footer-link:hover {
+                color: #aaa;
+            }
+    
+            .footer-social {
+                margin-top: 20px;
+            }
+    
+            .social-link {
+                /*color: #fff;*/
+                /*text-decoration: none;*/
+                margin: 0 10px;
+                font-size: 20px;
+                /*transition: color 0.3s ease-in-out;*/
+            }
+    
+            .footer-text {
+                font-size: 14px;
+            }
+        </style>
+    
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">T&eacute;rminos y Condiciones</a>
+                <a href="#" class="footer-link">Pol&iacute;tica de Privacidad</a>
+                <a href="#" class="footer-link">Contacto</a>
+            </div>
+    
+            <div class="footer-social">
+                <a href="#" class="social-link" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+                    <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"></path>
+                </svg></a>
+                <a href="#" class="social-link" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+                    <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
+                    </svg></a>
+                <a href="#" class="social-link" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+                    <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path>
+                </svg></a>
+            </div>
+        </div>
+    
+        <p class="footer-text">&copy; {{fecha}} Validaci&oacute;n de Certificados - INICTEL - UNI</p>
+    </footer>
+</html>

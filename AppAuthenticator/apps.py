@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ResponseConfig(AppConfig):
+class AppauthenticatorConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'response'
+    name = 'AppAuthenticator'

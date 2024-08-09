@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_recaptcha',
     'AppAuthenticator'
 ]
 
@@ -130,3 +131,6 @@ STATIC_ROOT = "autenticador-certificados/static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RECAPTCHA_PUBLIC_KEY = '6Lcjxg4qAAAAAM2PCbF_cI6LElkbajJjozp3pdaM'
+RECAPTCHA_PRIVATE_KEY = '6Lcjxg4qAAAAALX_2GA1ujoolSi06sNEFKR3O33A'

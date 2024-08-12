@@ -8,6 +8,7 @@
     <link type="text/css" rel='stylesheet' href='{% static "css/index.css" %}'/>
     <link type="text/css" rel='stylesheet' href='{% static "css/header.css" %}'/>
     <link type="text/css" rel='stylesheet' href='{% static "css/footer.css" %}'/>
+    <script type="text/css" charset='UTF-8' scr='{% static "js/captcha.js" %}'></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
@@ -15,32 +16,22 @@
     {% include "header.html" %}
   <div class="pageContainer">
     <div class="container">
-      <!-- Agrega la imagen de la institución -->
-      <!--img src="logoInictel.png" alt="Logo de la Institución" class="institution-logo"-->
       <h1>Buscador de Certificados</h1>
       <form action="/response/" method="post">
         <div class="fields">
-          {% csrf_token %}
-          
-          
+          {% csrf_token %}         
           
         <label for="dni">N&uacute;mero de DNI:</label>
           {{ form.dni }}
-          <!--<input type="text" id="dni" name="dni" pattern="\d{8}" title="El DNI debe tener exactamente 9 dígitos numéricos." required>
-        -->
           <label for="apellido">Primer Apellido:</label>
           {{ form.apellido }}
-          <!--<input type="text" id="apellido" name="apellido" pattern="[A-ZÑ\s]+" title="El apellido debe contener solo letras mayúsculas y espacios." required>
-        -->
         </div>
         
-        <!-- Agrega el widget de reCAPTCHA en su propio contenedor -->
-        <div class="captcha-container" >
+        <div class="rcp-container" >
           {{ form.recaptcha }}
-          <!--<div class="g-recaptcha" data-sitekey="6Lcjxg4qAAAAAM2PCbF_cI6LElkbajJjozp3pdaM"></div>-->
         </div>
         
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar" onclick="captchaVerified()">
         
         
       </form>

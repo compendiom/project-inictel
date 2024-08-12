@@ -57,7 +57,7 @@ ROOT_URLCONF = 'autenticator.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:\\proyectosVSC\\autenticador-certificados\\templates\\'],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

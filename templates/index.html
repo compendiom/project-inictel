@@ -5,25 +5,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device.width, initial-scale=1.0">
     <title>Buscador de Certificados</title>
-    <link type="text/css" rel='stylesheet' href='{% static "css/index.css" %}'/>
-    <link type="text/css" rel='stylesheet' href='{% static "css/header.css" %}'/>
-    <link type="text/css" rel='stylesheet' href='{% static "css/footer.css" %}'/>
-    <script type="text/css" charset='UTF-8' scr='{% static "js/captcha.js" %}'></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
+    <link type="text/css" rel='stylesheet' href='{% static "/css/index.css" %}'/>
+    <link type="text/css" rel='stylesheet' href='{% static "/css/header.css" %}'/>
+    <link type="text/css" rel='stylesheet' href='{% static "/css/footer.css" %}'/>
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js" async defer></script>
+
+  </head>
 
 <body>
     {% include "header.html" %}
   <div class="pageContainer">
     <div class="container">
       <h1>Buscador de Certificados</h1>
-      <form action="/response/" method="post">
+      <form action="/response/" method="POST" onsubmit="captchaCondition()">
         <div class="fields">
           {% csrf_token %}         
           
         <label for="dni">N&uacute;mero de DNI:</label>
           {{ form.dni }}
-          <label for="apellido">Primer Apellido:</label>
+        <label for="apellido">Primer Apellido:</label>
           {{ form.apellido }}
         </div>
         
@@ -31,7 +31,7 @@
           {{ form.recaptcha }}
         </div>
         
-        <input type="submit" value="Enviar" onclick="captchaVerified()">
+        <input type="submit" value="Enviar" name="Enviar">
         
         
       </form>
@@ -39,5 +39,6 @@
   </div>
   {% block footer %} 
   {% endblock %}
+  <script src='{% static "/js/config.js" %}'></script>
 </body>
 </html>

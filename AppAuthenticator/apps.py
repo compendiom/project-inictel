@@ -7,5 +7,5 @@ class AppauthenticatorConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'AppAuthenticator'
 
-    def ready(self):
-        register(recaptcha_key_check, Tags.security)
+#    def ready(self):
+#        register(recaptcha_key_check, Tags.security)

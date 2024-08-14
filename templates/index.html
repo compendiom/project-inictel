@@ -8,7 +8,7 @@
     <link type="text/css" rel='stylesheet' href='{% static "/css/index.css" %}'/>
     <link type="text/css" rel='stylesheet' href='{% static "/css/header.css" %}'/>
     <link type="text/css" rel='stylesheet' href='{% static "/css/footer.css" %}'/>
-    <script type="text/javascript" src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js" async defer></script>
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   </head>
 
@@ -17,7 +17,7 @@
   <div class="pageContainer">
     <div class="container">
       <h1>Buscador de Certificados</h1>
-      <form action="/response/" method="POST" onsubmit="captchaCondition()">
+      <form action="/" method="POST" >
         <div class="fields">
           {% csrf_token %}         
           
@@ -28,7 +28,7 @@
         </div>
         
         <div class="rcp-container" >
-          {{ form.recaptcha }}
+          <div class="g-recaptcha" data-sitekey="6Lcjxg4qAAAAAM2PCbF_cI6LElkbajJjozp3pdaM" required></div>
         </div>
         
         <input type="submit" value="Enviar" name="Enviar">

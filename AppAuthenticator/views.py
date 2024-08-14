@@ -23,8 +23,10 @@ def requestPage(request):
             result = req.json()
             print(result)
             if result['success']:
-                print(form.cleaned_data)
-                return redirect('response_page')
+                print(form.cleaned_data.get('apellido'))
+                
+                context = {}
+                return render(request, 'resultado.html', context)
             else:
                 return render(request, 'error.html', {"error_message": "Error en el Captcha"})
     return render(request, 'footer.html', {"fecha": anio, "form": form})

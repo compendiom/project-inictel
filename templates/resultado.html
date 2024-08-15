@@ -14,27 +14,27 @@
             <table class="table-result" border="1px">
                 <thead>
                     <tr>
-                        <th colspan="4">Nombre: <!--NOMBRE DEL PERSONA--> </th>
-                        <th colspan="2">DNI: <!--NÚMERO DE DNI DE LA PERSONA--></th>
+                        <th colspan="4">Nombre: {{nombre}} </th>
+                        <th colspan="2">DNI: {{dni}}</th>
                     </tr>
                     <tr>
                         <th>Programa</th>
+                        <th>Nombre de Curso</th>
                         <th>Nota</th>
                         <th>Horas</th>
-                        <th>Cod. validaci&oacute;n</th>
                         <th>Fecha de Inicio</th>
                         <th>Fecha de Cierre</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for lenght in cursos %}
+                    {% for curso in cursos %}
                     <tr>
-                        <td> {{ programa }} </td>
-                        <td> {{ nota }} </td>
-                        <td> {{ horas }} </td>
-                        <td> {{ codigo }} </td>
-                        <td> {{ fechaInicio }} </td>
-                        <td> {{ fechaFin }} </td>
+                        <td> {{ curso.nombre_prog }} </td>
+                        <td> {{ curso.nombre }} </td>
+                        <td> {{ curso.nota }} </td>
+                        <td> {{ curso.horas }} </td>
+                        <td> {{ curso.fecha_inicio }} </td>
+                        <td> {{ curso.fecha_fin }} </td>
                     </tr>
                     {% endfor %}
                 </tbody>

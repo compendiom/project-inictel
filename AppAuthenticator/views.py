@@ -25,7 +25,6 @@ def requestPage(request):
             print(result)
             if result['success']:
                 dni = form.cleaned_data.get('dni')
-                print(form.cleaned_data.get('apellido'))
                 # Conexión a la base de datos
                 result = db.connectDB()
                 if result is False:
@@ -37,11 +36,10 @@ def requestPage(request):
                 nombre = result
                 # Validar cursos
                 result = db.getCursos(dni)
-                if len(result) < 0:
-                    return render(request, 'error.html', {'error_message': 'No cuenta con nigún curso el estudiante ingresado'})
+                if len(result) == 0:
+                    return render(request, 'error.html', {'error_message': 'No cuenta con nigún curso aprobado el estudiante ingresado'})
                 cursos = result
-                print(cursos)
-                return render(request, 'resultado.html', {"nombre": nombre, "dni": dni, "cursos": cursos})
+                return render(request, 'resultado.html', {"Nombre": nombre, "dni": dni, "cursos": cursos})
             else:
                 return render(request, 'error.html', {"error_message": "Error en el Captcha"})
     return render(request, 'footer.html', {"fecha": anio, "form": form})

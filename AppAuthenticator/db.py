@@ -1,5 +1,4 @@
 import pyodbc
-import pandas as pd
 
 user= 'sa'
 password= 'Inictel2024'
@@ -23,16 +22,13 @@ def validateInfo(dni, apellido):
     try:
         conexion = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL server};SERVER='+server+';DATABASE='+database+';UID='+user+';PWD='+password)
         cursor = conexion.cursor()
-        cursor.execute('EXEC [dbo].[SPU_VALIDACION_CLIENTE] @apellido=?, @dni=?', apellido, dni)
+        result = cursor.execute('EXEC [dbo].[SPU_VALIDACION_CLIENTE] @apellido=?, @dni=?', apellido, dni).fetchval()
         print(cursor.fetchval())
-        if cursor.fetchval() is not None or cursor.fetchval() == " ":
-            result = False
-        else:
-            result = cursor.fetchval()
+        if result is None:
+            result = False            
     except Exception as e:
         print("Error en la consulta")
         print("ERROR:", e)
-        result = False
     finally:
         cursor.close()
         conexion.close()

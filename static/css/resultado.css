@@ -10,7 +10,7 @@ body {
     flex-direction: column;
 }
 .container {
-    max-width: 600px;
+    max-width: 2000px;
     margin: 20px auto; /* Centrar contenedor */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
     border-radius: 5px;

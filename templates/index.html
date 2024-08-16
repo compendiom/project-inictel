@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device.width, initial-scale=1.0">
+    <title>Buscador de Certificados</title>
+    <link type="text/css" rel='stylesheet' href='{% static "/css/index.css" %}'/>
+    <link type="text/css" rel='stylesheet' href='{% static "/css/header.css" %}'/>
+    <link type="text/css" rel='stylesheet' href='{% static "/css/footer.css" %}'/>
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  </head>
+
+<body>
+    {% include "header.html" %}
+  <div class="pageContainer">
+    <div class="container">
+      <h1>Buscador de Certificados</h1>
+      <form action="/" method="POST" >
+        <div class="fields">
+          {% csrf_token %}         
+          
+        <label for="dni">N&uacute;mero de DNI:</label>
+          {{ form.dni }}
+        <label for="apellido">Primer Apellido:</label>
+          {{ form.apellido }}
+        </div>
+        
+        <div class="rcp-container" >
+          <div class="g-recaptcha" data-sitekey="6Lcjxg4qAAAAAM2PCbF_cI6LElkbajJjozp3pdaM" required></div>
+        </div>
+        
+        <input type="submit" value="Enviar" name="Enviar">
+        
+        
+      </form>
+    </div>
+  </div>
+  {% block footer %} 
+  {% endblock %}
+</body>
+</html>

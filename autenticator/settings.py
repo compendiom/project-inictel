@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'AppAuthenticator'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'autenticator.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,15 +76,20 @@ WSGI_APPLICATION = 'autenticator.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'BD_DJANGO',
-        'HOST': 'JUTRWS',
-        'PORT': '',
-        'USER': 'sa',
-        'PASSWORD': 'Inictel2024',
-        'OPTIONS': { 'driver': 'ODBC Driver 17 for SQL Server' }
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
     }
+    
+    #'default': {
+    #    'ENGINE': 'mssql',
+    #    'NAME': 'BD_GEDSYS',
+    #    'HOST': 'JUTRWS',
+    #    'PORT': '',
+    #    'USER': 'sa',
+    #    'PASSWORD': 'Inictel2024',
+    #    'OPTIONS': { 'driver': 'ODBC Driver 17 for SQL Server' }
+    #}
 }
 
 
@@ -120,9 +127,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'),]
+STATIC_ROOT = "autenticador-certificados/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RECAPTCHA_PUBLIC_KEY = '6Lcjxg4qAAAAAM2PCbF_cI6LElkbajJjozp3pdaM'
+RECAPTCHA_PRIVATE_KEY = '6Lcjxg4qAAAAALX_2GA1ujoolSi06sNEFKR3O33A'

@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #9fcdff, #519ef0f8);
+    background: #d4e0ec;
     color: #000; /* Texto oscuro */
     
     align-items: center;
@@ -67,7 +67,7 @@ body {
     display: inline-block;
   }
   input[type="submit"] {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: #fff;
     padding: 10px 20px;
     border: none;

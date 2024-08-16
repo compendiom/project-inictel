@@ -1,6 +1,6 @@
 /* Estilos para el footer */
 
-footer {
+  footer {
     background-color: #1e3a8a;
     color: #fff;
     text-align: center;
@@ -49,5 +49,9 @@ footer {
   
   .footer-text {
     font-size: 14px;
+  }
+
+  .franja2 {
+    background: #212122;
   }
   

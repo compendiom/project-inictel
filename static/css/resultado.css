@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: Linear-gradient(to bottom, #9fcdff, #519ef0f8);
+    background: #d4e0ec;
     color: #333; /* Texto más oscuro*/
 
     align-items: center;
@@ -10,7 +10,7 @@ body {
     flex-direction: column;
 }
 .container {
-    max-width: 2000px;
+    max-width: 1000px;
     margin: 20px auto; /* Centrar contenedor */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
     border-radius: 5px;

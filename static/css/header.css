@@ -14,9 +14,11 @@ header {
     margin: 0 auto;
 }
             
-.logo img {
+.logo a img {
     max-width: 100%;
     height: auto;
+    margin: 0;
+    padding: 0;
 }
             
 .menu {

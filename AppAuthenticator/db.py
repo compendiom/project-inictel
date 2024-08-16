@@ -23,7 +23,6 @@ def validateInfo(dni, apellido):
         conexion = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL server};SERVER='+server+';DATABASE='+database+';UID='+user+';PWD='+password)
         cursor = conexion.cursor()
         result = cursor.execute('EXEC [dbo].[SPU_VALIDACION_CLIENTE] @apellido=?, @dni=?', apellido, dni).fetchval()
-        print(cursor.fetchval())
         if result is None:
             result = False            
     except Exception as e:

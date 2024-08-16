@@ -22,7 +22,6 @@ def requestPage(request):
             }
             req = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
             result = req.json()
-            print(result)
             if result['success']:
                 dni = form.cleaned_data.get('dni')
                 # Conexión a la base de datos

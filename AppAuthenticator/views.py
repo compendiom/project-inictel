@@ -41,7 +41,7 @@ def requestPage(request):
                 return render(request, 'resultado.html', {"Nombre": nombre, "dni": dni, "cursos": cursos})
             else:
                 return render(request, 'error.html', {"error_message": "Error en el Captcha"})
-    return render(request, 'footer.html', {"fecha": anio, "form": form})
+    return render(request, 'footer.html', {"anio": anio, "form": form})
 
 def errorPage(request, error_message=None):
     if error_message == None:

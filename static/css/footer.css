@@ -1,3 +1,96 @@
 /* Estilos para el footer */
 /*backgroud footer #343841
 /*backgroud franja2 #212122*/
+
+footer {
+    position: relative;
+    width: 100%;
+    color: #eee;
+}
+
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+.franja1 {
+    background-color: #414141;
+}
+
+.titulo {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.texto {
+    font-size: 0.9rem;
+}
+
+.tabla {
+    padding: 20px 0 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.franja2 {
+    text-align: center;
+    background-color: #2d2d2d;
+    height: 50%;
+}
+
+.franja2 .pie p {
+    padding: 2.5px 0 0 0;
+    margin: 0 0 0 0 ;
+    font-size: 0.9rem;
+    
+}
+/*
+.franja1 .tabla {
+    width: 100%;
+    padding-top: 2rem;
+    padding-left: 1.5rem;
+    color: #eee;
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    line-height: 1.3rem;
+}
+
+
+#col1, #col2 {
+    vertical-align: top;
+}
+
+#col2 .separador {
+    width: 50%;
+}
+
+#col3 {
+    text-align: left;
+}
+
+.franja2 {
+    background-color: #2d2d2d;
+    position: absolute;
+    width: 100%;
+    /*bottom: 1px;
+}
+
+/*.franja2 .pie {
+    width: 100%;
+    /*margin: auto;
+    padding: 1rem;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.franja2 .pie p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}*/
+
+@media(max-width: 900px){
+
+}

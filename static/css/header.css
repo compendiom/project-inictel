@@ -3,6 +3,8 @@ header {
     background-color: #fff; /* Color de fondo del encabezado */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
+    height: 75px;
+    position: fixed;
     top: 0
 }
 
@@ -80,7 +82,234 @@ nav {
     color: #007bff; /* Color del texto al pasar el ratón */
 }
 
-
-@media (max-width:1050px) {
-    
+.header-movil {
+    display: none;
 }
+
+@media (max-width:900px) {
+    .barra, .header-container {
+        display: none;
+    }
+
+    .header-movil {
+        background-color: #404040;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 75px;
+        padding-left: 50px;
+    }
+    
+    .logoInictel {
+        margin-left: 10px;
+    }
+    
+    .header-movil nav {
+        max-width: 100%;
+    }
+
+    .header-movil nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .nav-link {
+        list-style: none;
+        color: #eee;
+    }
+
+    nav .nav-list {
+        display: grid;
+        position: absolute;
+        background: #404040;
+        width: 25%;
+        top: 75px;
+        left: 100%;
+        transform: translateX(100%);
+        z-index: -1;
+        transition: .6s;
+    }
+
+    nav .nav-list .nav-item {
+        text-decoration: none;
+        padding: 15px;
+        margin: 0;
+        border: 0.5px solid #eee;
+    }
+
+    .navbar-toggler {
+        position: relative;
+        height: 50%;
+        width: 45px;
+        margin: 0;
+        left: 200px;
+        cursor: pointer;
+        padding-right: 15px;
+    }
+    
+    .navbar-toggler .bar {
+        position: absolute;
+        width: 75%;
+        height: 5px;
+        margin-bottom: 5px;
+        background-color: #eee;
+        border-radius: 15px;  
+        left: 15%;
+        transition: .4s;
+    }
+
+    .nav-list .nav-item:hover {
+        background: #eee;
+        .nav-link {
+            color: #404040;
+        }
+    }
+
+    .navbar-toggler .bar:nth-child(1){
+        top: 25%;
+    }
+
+    .navbar-toggler .bar:nth-child(3){
+        top: 50%;
+    }
+
+    #toggle {
+        display: none;
+    }
+
+    #toggle:checked ~ nav .nav-list {
+        transform: translateX(-100%);
+    }
+
+    #toggle:checked ~ .navbar-toggler .bar:nth-child(1) {
+        transform: rotate(20deg);
+    }
+
+    #toggle:checked ~ .navbar-toggler .bar:nth-child(2) {
+        display: none;
+    }
+
+    #toggle:checked ~ .navbar-toggler .bar:nth-child(3) {
+        transform: rotate(-20deg);
+    }
+}
+
+@media (max-width:450px) {
+    .barra, .header-container {
+        display: none;
+    }
+
+    .header-movil {
+        background-color: #404040;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 75px;
+        padding-left: 10px;
+    }
+    
+    .logoInictel {
+        margin-left: 0px;
+    }
+    
+    .header-movil nav {
+        max-width: 100%;
+    }
+
+    .header-movil nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .nav-list {
+        display: grid;
+        position: absolute;
+        background: #404040;
+        width: 100%;
+        top: 75px;
+        left: 100%;
+        transform: translateX(100%);
+        z-index: -1;
+        transition: .6s;
+    }
+
+    nav .nav-list .nav-item {
+        list-style: none;
+        padding: 15px;
+        margin: 0;
+        border: 0.5px solid #eee;
+        text-decoration: none;
+    }
+
+    .navbar-toggler {
+        position: relative;
+        height: 50%;
+        width: 30px;
+        margin: 0;
+        left: 15%;
+        top: 7%;
+        cursor: pointer;
+        padding: 0;
+    }
+    
+    .navbar-toggler .bar {
+        position: absolute;
+        width: 30px;
+        height: 5px;
+        margin-bottom: 5px;
+        background-color: #eee;
+        border-radius: 15px;  
+        left: 0;
+        transition: .4s;
+    }
+
+    .nav-list .nav-item:hover {
+        background: #eee;
+        .nav-link {
+            color: #404040;
+        }
+    }
+
+    .navbar-toggler .bar:nth-child(1){
+        top: 25%;
+    }
+
+    .navbar-toggler .bar:nth-child(3){
+        top: 50%;
+    }
+
+    #toggle {
+        display: none;
+    }
+
+    #toggle:checked ~ nav .nav-list {
+        transform: translateX(-100%);
+    }
+
+    #toggle:checked ~ .navbar-toggler .bar:nth-child(1) {
+        position: absolute;
+        width: 30px;
+        transform: rotate(25deg);
+    }
+
+    #toggle:checked ~ .navbar-toggler .bar:nth-child(2) {
+        display: none;
+    }
+
+    #toggle:checked ~ .navbar-toggler .bar:nth-child(3) {
+        width: 30px;
+        transform: rotate(-25deg);
+    }
+}
+

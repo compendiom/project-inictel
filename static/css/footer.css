@@ -2,9 +2,10 @@
 /*backgroud footer #343841
 /*backgroud franja2 #212122*/
 
-footer {
+/*footer {
     position: relative;
     width: 100%;
+    height: 100%;
     color: #eee;
 }
 
@@ -43,54 +44,15 @@ a {
     margin: 0 0 0 0 ;
     font-size: 0.9rem;
     
-}
-/*
-.franja1 .tabla {
-    width: 100%;
-    padding-top: 2rem;
-    padding-left: 1.5rem;
-    color: #eee;
-    border: none;
-    display: flex;
-    justify-content: space-around;
-    line-height: 1.3rem;
-}
-
-
-#col1, #col2 {
-    vertical-align: top;
-}
-
-#col2 .separador {
-    width: 50%;
-}
-
-#col3 {
-    text-align: left;
-}
-
-.franja2 {
-    background-color: #2d2d2d;
-    position: absolute;
-    width: 100%;
-    /*bottom: 1px;
-}
-
-/*.franja2 .pie {
-    width: 100%;
-    /*margin: auto;
-    padding: 1rem;
-    border: none;
-    color: #fff;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.franja2 .pie p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
 }*/
 
-@media(max-width: 900px){
-
+p {
+    margin: 0;
+    padding: 0;
 }
+
+/*@media(max-width: 900px){
+    
+
+
+}*/

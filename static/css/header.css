@@ -104,6 +104,12 @@ nav {
     .logoInictel {
         margin-left: 10px;
     }
+
+    .label-bar {
+        margin-left: 40%;
+        color: #fff;
+        font-size: 2rem;
+    }
     
     .header-movil nav {
         max-width: 100%;
@@ -143,40 +149,11 @@ nav {
         border: 0.5px solid #eee;
     }
 
-    .navbar-toggler {
-        position: relative;
-        height: 50%;
-        width: 45px;
-        margin: 0;
-        left: 200px;
-        cursor: pointer;
-        padding-right: 15px;
-    }
-    
-    .navbar-toggler .bar {
-        position: absolute;
-        width: 75%;
-        height: 5px;
-        margin-bottom: 5px;
-        background-color: #eee;
-        border-radius: 15px;  
-        left: 15%;
-        transition: .4s;
-    }
-
     .nav-list .nav-item:hover {
         background: #eee;
         .nav-link {
             color: #404040;
         }
-    }
-
-    .navbar-toggler .bar:nth-child(1){
-        top: 25%;
-    }
-
-    .navbar-toggler .bar:nth-child(3){
-        top: 50%;
     }
 
     #toggle {
@@ -187,20 +164,9 @@ nav {
         transform: translateX(-100%);
     }
 
-    #toggle:checked ~ .navbar-toggler .bar:nth-child(1) {
-        transform: rotate(20deg);
-    }
-
-    #toggle:checked ~ .navbar-toggler .bar:nth-child(2) {
-        display: none;
-    }
-
-    #toggle:checked ~ .navbar-toggler .bar:nth-child(3) {
-        transform: rotate(-20deg);
-    }
 }
 
-@media (max-width:450px) {
+@media (max-width:540px) {
     .barra, .header-container {
         display: none;
     }
@@ -216,7 +182,7 @@ nav {
     }
     
     .logoInictel {
-        margin-left: 0px;
+        margin-left: 15px;
     }
     
     .header-movil nav {
@@ -252,28 +218,6 @@ nav {
         text-decoration: none;
     }
 
-    .navbar-toggler {
-        position: relative;
-        height: 50%;
-        width: 30px;
-        margin: 0;
-        left: 15%;
-        top: 7%;
-        cursor: pointer;
-        padding: 0;
-    }
-    
-    .navbar-toggler .bar {
-        position: absolute;
-        width: 30px;
-        height: 5px;
-        margin-bottom: 5px;
-        background-color: #eee;
-        border-radius: 15px;  
-        left: 0;
-        transition: .4s;
-    }
-
     .nav-list .nav-item:hover {
         background: #eee;
         .nav-link {
@@ -281,12 +225,9 @@ nav {
         }
     }
 
-    .navbar-toggler .bar:nth-child(1){
-        top: 25%;
-    }
-
-    .navbar-toggler .bar:nth-child(3){
-        top: 50%;
+    .label-bar {
+        color: #fff;
+        font-size: 2rem;
     }
 
     #toggle {
@@ -295,21 +236,6 @@ nav {
 
     #toggle:checked ~ nav .nav-list {
         transform: translateX(-100%);
-    }
-
-    #toggle:checked ~ .navbar-toggler .bar:nth-child(1) {
-        position: absolute;
-        width: 30px;
-        transform: rotate(25deg);
-    }
-
-    #toggle:checked ~ .navbar-toggler .bar:nth-child(2) {
-        display: none;
-    }
-
-    #toggle:checked ~ .navbar-toggler .bar:nth-child(3) {
-        width: 30px;
-        transform: rotate(-25deg);
     }
 }
 

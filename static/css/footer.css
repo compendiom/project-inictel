@@ -54,8 +54,13 @@ footer {
     color: #eee;
 }
 
-@media (max-width:420px){
+@media (max-width:540px){
     footer p, #col2 a {
         font-size: 0.8rem;
+    }
+
+    .tabla {
+        padding-top: 20px;
+        padding-bottom: 10px;
     }
 }

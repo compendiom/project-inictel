@@ -1,13 +1,10 @@
 body {
+    position: relative;
     font-family: Arial, sans-serif;
     background: #d4e0ec;
     color: #333; /* Texto más oscuro*/
-
-    align-items: center;
-    justify-content: center;
     height: 100vh;
     margin: 0;
-    flex-direction: column;
 }
 .container {
     max-width: 1000px;
@@ -21,6 +18,7 @@ body {
     flex-direction: column;
 }
 .pageContainer {
+    position: absolute;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -30,6 +28,9 @@ body {
     justify-content: center;
     height: 70%;
     min-height: 40%;
+    top: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .titulo {
     margin-top: 0;
@@ -37,14 +38,89 @@ body {
     color: #007bff;
     text-align: center;
 }
+
+.table-container {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height: 500px;
+}
+
+.table-result {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+}
+
+th, td {
+    padding: 1rem;
+}
+
+th {
+    background: hsl(0 0% 0%);
+    color: #eee;
+    border: 1px solid azure;
+}
+
+td {
+    border: 1px solid black;
+}
+
+tr:nth-of-type(2n) {
+    background: hsl(0 0% 0% / 0.1)
+}
+
 .volver {
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
     display: block; /* Hacer el enlace un bloque */
     margin-top: 20px; /* Espaciado desde el último párrafo */
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    border-radius: 5px;
+    width: 17%;
 }
 .volver:hover {
-    text-decoration: underline;
+    background-color: #007bff;
+    color: #eee;
+    transition: .5s ease;
+}
+
+
+@media (max-width: 900px) {
+
+    .pageContainer {
+        margin-left: 0;
+    }
+    .desc-tabla-dni, .titulo-tabla, h1 {
+        display: none;
+    }
+
+    td {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: 15ch auto;
+        padding: 0.5rem 1rem;
+    }
+
+    td:first-child {
+        padding-top: 2rem;
+    }
+
+    td:last-child {
+        padding-bottom: 2rem;
+    }
+
+    td::before {
+        content: attr(data-cell) ": ";
+        font-weight: 700;
+        text-transform: capitalize;
+        text-align: center;
+    }
+    
+    .table-container {
+        overflow-y: scroll;
+    }
 }

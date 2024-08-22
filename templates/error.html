@@ -8,6 +8,7 @@
         <link type="text/css" href='{% static "css/error.css" %}' rel="stylesheet">
     </head>
     <body>
+        {% include "header.html" %}
         <div class="container">
            <b style="font-size: medium;">{{ error_message }}</b>
             <div class="back-to-home">

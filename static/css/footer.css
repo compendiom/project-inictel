@@ -2,57 +2,60 @@
 /*backgroud footer #343841
 /*backgroud franja2 #212122*/
 
-/*footer {
-    position: relative;
+footer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
     width: 100%;
-    height: 100%;
-    color: #eee;
+    height: 30%;
+    background-color: #343841;
 }
 
-a {
+.texto a, .texto {
     text-decoration: none;
     color: #eee;
 }
 
-.franja1 {
-    background-color: #414141;
+.titulo, .pie p {
+    margin: 0;
+    padding: 0;
+    color: #eee;
 }
 
 .titulo {
-    font-size: 1rem;
     font-weight: 600;
-}
-
-.texto {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .tabla {
-    padding: 20px 0 0 0;
     display: flex;
     justify-content: space-around;
+    padding-top: 30px;
+}
+
+.franja1 {
+    width: 100%;
+    height: 70%;
 }
 
 .franja2 {
+    background-color: #212122;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    background-color: #2d2d2d;
-    height: 50%;
+    width: 100%;
+    height: 30%;
 }
 
 .franja2 .pie p {
-    padding: 2.5px 0 0 0;
-    margin: 0 0 0 0 ;
-    font-size: 0.9rem;
-    
-}*/
-
-p {
-    margin: 0;
-    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #eee;
 }
 
-/*@media(max-width: 900px){
-    
-
-
-}*/
+@media (max-width:420px){
+    footer p, #col2 a {
+        font-size: 0.8rem;
+    }
+}

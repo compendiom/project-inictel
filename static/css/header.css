@@ -3,25 +3,69 @@ header {
     background-color: #fff; /* Color de fondo del encabezado */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
+    height: 75px;
+    position: fixed;
     top: 0
+}
+
+.barra {
+    max-width: 100%;
+    height: 5px;
+    background-color: #72aeee;
 }
             
 .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    max-width: 1200px;
+    max-width: 90%;
+    height: 75px;
     margin: 0 auto;
 }
-            
-.logo img {
-    max-width: 100%;
-    height: auto;
+
+.header_panel_2 {
+    max-width: 570px;
+    max-height: 100%;
 }
-            
+
+#id_des {
+    max-width: 75%;
+    color: #458bd6;
+    font-size: smaller;
+    float: right;
+    text-align: end;
+    margin-bottom: 5px;
+    padding: 0;
+}
+.logo {
+    width: 30%;
+}
+
+
+.logo a img {
+    width: 340px;
+    height: 55px;
+    margin: 0;
+    padding: 0;
+}
+
+/*Ícono lupa*/
+#encab_buscar {
+    width: 15px;
+    height: 15px;
+}
+
+nav {
+    max-width: 80%;
+    float: right;
+    margin-top: 5px;
+}
+
 .menu {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
             
 .menu li {
@@ -33,8 +77,171 @@ header {
     color: #333; /* Color del texto del menú */
     font-weight: bold;
     transition: color 0.3s ease;
-    }
+}
             
 .menu li a:hover {
     color: #007bff; /* Color del texto al pasar el ratón */
+}
+
+.header-movil {
+    display: none;
+}
+
+@media (max-width:900px) {
+    .barra, .header-container {
+        display: none;
+    }
+
+    .header-movil {
+        background-color: #404040;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 75px;
+        padding-left: 50px;
+    }
+    
+    .logoInictel {
+        margin-left: 10px;
+    }
+
+    .label-bar {
+        margin-left: 40%;
+        color: #fff;
+        font-size: 2rem;
+    }
+    
+    .header-movil nav {
+        max-width: 100%;
+    }
+
+    .header-movil nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .nav-link {
+        list-style: none;
+        color: #eee;
+    }
+
+    nav .nav-list {
+        display: grid;
+        position: absolute;
+        background: #404040;
+        width: 25%;
+        top: 75px;
+        left: 100%;
+        transform: translateX(100%);
+        z-index: -1;
+        transition: .6s;
+    }
+
+    nav .nav-list .nav-item {
+        text-decoration: none;
+        padding: 15px;
+        margin: 0;
+        border: 0.5px solid #eee;
+    }
+
+    .nav-list .nav-item:hover {
+        background: #eee;
+        .nav-link {
+            color: #404040;
+        }
+    }
+
+    #toggle {
+        display: none;
+    }
+
+    #toggle:checked ~ nav .nav-list {
+        transform: translateX(-100%);
+    }
+
+}
+
+@media (max-width:540px) {
+    .barra, .header-container {
+        display: none;
+    }
+
+    .header-movil {
+        background-color: #404040;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 75px;
+        padding-left: 10px;
+    }
+    
+    .logoInictel {
+        margin-left: 15px;
+    }
+    
+    .header-movil nav {
+        max-width: 100%;
+    }
+
+    .header-movil nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .nav-list {
+        display: grid;
+        position: absolute;
+        background: #404040;
+        width: 100%;
+        top: 75px;
+        left: 100%;
+        transform: translateX(100%);
+        z-index: -1;
+        transition: .6s;
+    }
+
+    nav .nav-list .nav-item {
+        list-style: none;
+        padding: 15px;
+        margin: 0;
+        border: 0.5px solid #eee;
+        text-decoration: none;
+    }
+
+    .nav-list .nav-item:hover {
+        background: #eee;
+        .nav-link {
+            color: #404040;
+        }
+    }
+
+    .label-bar {
+        color: #fff;
+        font-size: 2rem;
+    }
+
+    #toggle {
+        display: none;
+    }
+
+    #toggle:checked ~ nav .nav-list {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width:375px) {
+    .label-bar {
+        margin-left: 35%;
+    }
 }

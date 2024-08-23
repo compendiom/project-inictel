@@ -6,13 +6,14 @@
         <meta name="viewport" content="width=device.width, initial-scale=1.0">
         <title>Error en la B&uacute;squeda</title>
         <link type="text/css" href='{% static "css/error.css" %}' rel="stylesheet">
+        <link type="text/css" href='{% static "css/header.css" %}' rel="stylesheet">
     </head>
     <body>
+        {% include "header.html" %}
         <div class="container">
-            <h1>Ha ocurrido un error</h1>
-            <span><b>Descripci&oacute;n:</b> {{ error_message }}</span>
+           <b style="font-size: medium;">{{ error_message }}</b>
             <div class="back-to-home">
-                <a href="/">Volver al formulario</a>
+                <a href="/" class="volver">Volver al formulario</a>
             </div>
         </div>
     </body>

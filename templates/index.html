@@ -9,12 +9,11 @@
     <link type="text/css" rel='stylesheet' href='{% static "/css/header.css" %}'/>
     <link type="text/css" rel='stylesheet' href='{% static "/css/footer.css" %}'/>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
-
   </head>
 
 <body>
     {% include "header.html" %}
-  <div class="pageContainer">
+  <main class="pageContainer">
     <div class="container">
       <h1>Buscador de Certificados</h1>
       <form action="/" method="POST" >
@@ -36,7 +35,7 @@
         
       </form>
     </div>
-  </div>
+  </main>
   {% block footer %} 
   {% endblock %}
 </body>

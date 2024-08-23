@@ -240,3 +240,8 @@ nav {
     }
 }
 
+@media (max-width:375px) {
+    .label-bar {
+        margin-left: 35%;
+    }
+}

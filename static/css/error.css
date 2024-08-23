@@ -30,10 +30,34 @@ p {
     margin-top: 20px;
 }
 
-a {
+.volver {
+    text-decoration: none;
     color: #007bff;
+    font-weight: bold;
+    display: block; /* Hacer el enlace un bloque */
+    margin-top: 20px; /* Espaciado desde el último párrafo */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 5px;
+    width: 17%;
 }
 
-a:hover {
-    text-decoration: underline;
+.volver:hover {
+    background-color: #007bff;
+    color: #eee;
+    transition: .5s ease;
+}
+
+@media screen and (max-width: 900px), screen and (max-height:800px) {
+    .volver {
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 450px), screen and (max-height:800px) {
+    .volver {
+        width: 75%;
+    }
 }

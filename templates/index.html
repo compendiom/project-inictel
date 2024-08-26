@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device.width, initial-scale=1.0">
-    <title>Buscador de Certificados</title>
+    <title>Validaci&oacute;n de Certificados</title>
     <link type="text/css" rel='stylesheet' href='{% static "/css/index.css" %}'/>
     <link type="text/css" rel='stylesheet' href='{% static "/css/header.css" %}'/>
     <link type="text/css" rel='stylesheet' href='{% static "/css/footer.css" %}'/>
+    <link rel="shortcut icon" href="https://media.licdn.com/dms/image/v2/C4E0BAQGdcnnwa9k1kQ/company-logo_200_200/company-logo_200_200/0/1630563761471/inictel_peru_logo?e=2147483647&v=beta&t=e4_T2H2Jy7JLrBGrIolyNVmfR-V_3YYSP3_M4sptXT0">
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
 
@@ -15,7 +16,7 @@
     {% include "header.html" %}
   <main class="pageContainer">
     <div class="container">
-      <h1>Buscador de Certificados</h1>
+      <h1>Validaci&oacute;n de Certificados</h1>
       <form action="/" method="POST" >
         <div class="fields">
           {% csrf_token %}         
@@ -24,8 +25,11 @@
           {{ form.dni }}
         <label for="apellido">Primer Apellido:</label>
           {{ form.apellido }}
+        <label for="codigo">C&oacute;digo de Validaci&oacute;n:</label>
+          {{form.codigo}}
+        <label for="tipo">Tipo de documento:</label>
+          {{form.tipo}}
         </div>
-        
         <div class="rcp-container" >
           <div class="g-recaptcha" data-sitekey="6Lcjxg4qAAAAAM2PCbF_cI6LElkbajJjozp3pdaM" required></div>
         </div>

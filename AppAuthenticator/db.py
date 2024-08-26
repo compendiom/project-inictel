@@ -24,7 +24,9 @@ def validateInfo(dni, apellido):
         cursor = conexion.cursor()
         result = cursor.execute('EXEC [dbo].[SPU_VALIDACION_CLIENTE] @apellido=?, @dni=?', apellido, dni).fetchval()
         if result is None:
-            result = False            
+            result = False
+        else:
+            print("Usuario validado")
     except Exception as e:
         print("Error en la consulta")
         print("ERROR:", e)
@@ -33,14 +35,14 @@ def validateInfo(dni, apellido):
         conexion.close()
     return result
     
-def getCursos(dni):
+def getValidatedCursos(dni, codigo, tipo):
     try:
         conexion = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL server};SERVER='+server+';DATABASE='+database+';UID='+user+';PWD='+password)
         cursor = conexion.cursor()
-        cursor.execute('EXEC [dbo].[SPU_VALIDACION_LIST_CURSO] @dni=?', dni)
+        cursor.execute('EXEC [dbo].[SPU_VALIDACION_QUERY_CURSO] @dni=? @codigo @tipo', dni, codigo, tipo)
         result = cursor.fetchall()
     except Exception as e:
-        print("Error en la busqueda de listado de cursos")
+        print("Error en la busqueda del documento")
         print("ERROR:", e)
         result = False
     finally:

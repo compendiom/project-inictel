@@ -4,15 +4,59 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.forms import ModelForm
 
 # Create your models here.
-class Persona(models.Model):
-    apellido = models.CharField(max_length=30)
-    dni = models.CharField(max_length=11)
+class PersonaForm(forms.Form):
+    
+    tipo_documento = {
+        ('24', 'Certificado'),
+        ('25', 'Constancia')
+    }
+    
+    
+    apellido = forms.CharField(
+        max_length=30,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'type': 'text',
+            'pattern': '[A-ZÑ]+',
+            'name': 'apellido',
+            'placeholder': 'ex.: PEREZ',
+            'title': 'Este campo debe tener SOLO letras mayúsculas',
+            'required': 'true'
+        })
+    )
 
-class PersonaForm(ModelForm):
-    class Meta:
-        model=Persona
-        fields = "__all__"
-        widgets = {
-            'apellido': forms.TextInput(attrs={'type':'text', 'pattern':'[A-ZÑ]+', 'name': 'apellido', 'placeholder': 'PEREZ', 'title': 'Este campo debe tener SOLO letras mayúsculas', 'required': 'true'}),
-            'dni': forms.TextInput(attrs={'type':'text', 'pattern':'.{8}', 'name': 'dni', 'placeholder': '12345678', 'title': 'Este campo debe tener 8 dígitos numéricos', 'required': 'true'})
-        }
+    dni = forms.CharField(
+        max_length=11,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'type': 'text',
+            'pattern': '[0-9]{8}',
+            'name': 'dni',
+            'placeholder': 'ex.: 12345678',
+            'title': 'Este campo debe tener 8 dígitos numéricos',
+            'required': 'true'
+        })
+    )
+
+    codigo = forms.CharField(
+        max_length=9,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'type': 'text',
+            'pattern': '[0-9]{9}',
+            'name': 'codigo',
+            'placeholder': 'ex.: 123456789',
+            'title': 'Este campo debe tener exactamente 9 dígitos numéricos',
+            'required': 'true'
+        })
+    )
+
+    tipo = forms.ChoiceField(
+        choices=tipo_documento,
+        widget=forms.RadioSelect(attrs={
+            'class': 'form-control'
+        })
+    )

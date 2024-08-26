@@ -14,6 +14,7 @@ def requestPage(request):
     form = PersonaForm()
     if request.method == 'POST':
         form = PersonaForm(request.POST)
+        print(form.is_valid())
         if form.is_valid():
             recaptcha_response=request.POST.get('g-recaptcha-response')
             data = {
@@ -24,6 +25,7 @@ def requestPage(request):
             result = req.json()
             if result['success']:
                 dni = form.cleaned_data.get('dni')
+                print(form.cleaned_data)
                 # Conexión a la base de datos
                 result = db.connectDB()
                 if result is False:
@@ -34,7 +36,7 @@ def requestPage(request):
                     return render(request, 'error.html', {'error_message': 'Error en la validación de usuario buscado'})
                 nombre = result
                 # Validar cursos
-                result = db.getCursos(dni)
+                result = db.getValidatedCursos(dni, form.cleaned_data.get('codigo'), form.cleaned_data.get('tipo'))
                 if len(result) == 0:
                     return render(request, 'error.html', {'error_message': 'No cuenta con nigún curso aprobado el estudiante ingresado'})
                 cursos = result

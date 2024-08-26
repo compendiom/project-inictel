@@ -12,36 +12,14 @@
     
     <div class="pageContainer">
         <div class="container">
-            <h1 class="titulo">Cursos encontrados <br>&excl;Felicitaciones por tu esfuerzo!</h1>
-            <div class="table-container">
-                <table class="table-result">
-                    <thead>
-                        <tr>
-                            <th class="desc-tabla-nombre" colspan="4">Nombre: {{Nombre}} </th>
-                            <th class="desc-tabla-dni" colspan="2">DNI: {{dni}}</th>
-                        </tr>
-                        <tr>
-                            <th class="titulo-tabla">Programa</th>
-                            <th class="titulo-tabla">Nombre de Curso</th>
-                            <th class="titulo-tabla">Nota</th>
-                            <th class="titulo-tabla">Horas</th>
-                            <th class="titulo-tabla">Fecha de Inicio</th>
-                            <th class="titulo-tabla">Fecha de Cierre</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for curso in cursos %}
-                        <tr>
-                            <td data-cell="Programa"> {{ curso.nombre_prog }} </td>
+            <h1 class="titulo">Curso encontrado <br>&excl;Felicitaciones por tu esfuerzo</h1>
+            
+                            <!--<td data-cell="Programa"> {{ curso.nombre_prog }} </td>
                             <td data-cell="Nombre de Curso"> {{ curso.nombre }} </td>
                             <td data-cell="Nota"> {{ curso.nota }} </td>
                             <td data-cell="Horas"> {{ curso.horas }} </td>
                             <td data-cell="Fecha de Inicio"> {{ curso.fecha_inicio }} </td>
-                            <td data-cell="Fecha de Cierre"> {{ curso.fecha_fin }} </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                            <td data-cell="Fecha de Cierre"> {{ curso.fecha_fin }} </td>-->
             </div>
             <a href="/" class="volver">Volver al formulario</a>
         </div>

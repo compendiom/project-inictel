@@ -7,8 +7,9 @@ footer {
     flex-direction: column;
     margin: auto;
     width: 100%;
-    height: 30%;
+    height: 25%;
     background-color: #343841;
+    /*margin-top: 43px;*/
 }
 
 .texto a, .texto {
@@ -30,7 +31,7 @@ footer {
 .tabla {
     display: flex;
     justify-content: space-around;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .franja1 {
@@ -52,6 +53,7 @@ footer {
     margin-top: 5px;
     margin-bottom: 5px;
     color: #eee;
+    font-size: 0.95rem;
 }
 
 

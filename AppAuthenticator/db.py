@@ -39,8 +39,9 @@ def getValidatedCursos(dni, codigo, tipo):
     try:
         conexion = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL server};SERVER='+server+';DATABASE='+database+';UID='+user+';PWD='+password)
         cursor = conexion.cursor()
-        cursor.execute('EXEC [dbo].[SPU_VALIDACION_QUERY_CURSO] @dni=? @codigo @tipo', dni, codigo, tipo)
-        result = cursor.fetchall()
+        query = "EXEC [dbo].[SPU_VALIDACION_QUERY_CURSO] ?, ?, ?"
+        values = (dni, codigo, tipo)
+        result=cursor.execute(query, values).fetchone()
     except Exception as e:
         print("Error en la busqueda del documento")
         print("ERROR:", e)

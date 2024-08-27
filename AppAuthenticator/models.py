@@ -46,10 +46,10 @@ class PersonaForm(forms.Form):
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'type': 'text',
-            'pattern': '[0-9]{9}',
+            'pattern': '[0-9]{5}',
             'name': 'codigo',
-            'placeholder': 'ex.: 123456789',
-            'title': 'Este campo debe tener exactamente 9 dígitos numéricos',
+            'placeholder': 'ex.: 12345',
+            'title': 'Este campo debe tener exactamente 5 dígitos numéricos',
             'required': 'true'
         })
     )

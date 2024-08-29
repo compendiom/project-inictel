@@ -58,5 +58,6 @@ class PersonaForm(forms.Form):
         choices=tipo_documento,
         widget=forms.RadioSelect(attrs={
             'class': 'form-control'
-        })
+        }),
+        required=True
     )

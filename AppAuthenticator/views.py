@@ -23,23 +23,22 @@ def requestPage(request):
             req = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
             result = req.json()
             if result['success']:
-                dni = form.cleaned_data.get('dni')
                 # Conexión a la base de datos
                 result = db.connectDB()
                 if result is False:
                     return render(request, 'error.html', {"error_message": "Error al conectar la base de datos"})
                 # Validar información
-                result = db.validateInfo(dni, form.cleaned_data.get('apellido'))
+                result = db.validateInfo(form.cleaned_data.get('dni'), form.cleaned_data.get('apellido'))
                 if result is False:
                     return render(request, 'error.html', {'error_message': 'Error en la validación de usuario buscado'})
                 nombre = result
                 # Validar cursos
-                result = db.getValidatedCursos(dni, form.cleaned_data.get('codigo'), form.cleaned_data.get('tipo'))
+                result = db.getValidatedCursos(form.cleaned_data.get('dni'), form.cleaned_data.get('codigo'), form.cleaned_data.get('tipo'))
                 if result is False:
                     return render(request, 'error.html', {'error_message': 'No se encontraron coincidencias con la base datos'})
                 curso = result
                 print(curso)
-                return render(request, 'resultado.html', {"Nombre": nombre, "dni": dni, "curso": curso})
+                return render(request, 'resultado.html', {"Nombre": nombre, "curso": curso})
             else:
                 return render(request, 'error.html', {"error_message": "Error en el Captcha"})
     return render(request, 'footer.html', {"anio": anio, "form": form})

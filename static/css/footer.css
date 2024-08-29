@@ -5,11 +5,10 @@
 footer {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    /*margin: auto;*/
     width: 100%;
     height: 25%;
     background-color: #343841;
-    /*margin-top: 43px;*/
 }
 
 .texto a, .texto {
@@ -56,15 +55,25 @@ footer {
     font-size: 0.95rem;
 }
 
+@media screen and (max-width:1080px) {
+    footer {
+        margin-top:76px;
+    }
+}
+
 
 @media (max-width:540px){
     footer p, #col2 a {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .tabla {
         padding-top: 20px;
         padding-bottom: 10px;
+    }
+
+    .franja2 .pie p {
+        font-size: 0.7rem;
     }
 }
 
@@ -74,7 +83,7 @@ footer {
         display: flex;
         justify-content: center;
         height: 100%;
-        margin-top: 120px;
+        margin-top: 150px;
     }
 
     .franja1 .limit_hor .tabla {
@@ -96,7 +105,7 @@ footer {
         display: flex;
         justify-content: center;
         height: 100%;
-        margin-top: 120px;
+        margin-top: 200px;
     }
 
     .franja1 .limit_hor .tabla {
